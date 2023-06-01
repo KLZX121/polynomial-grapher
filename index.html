@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <h1 class="center">Polynomial Grapher</h1>
+    <section id="inputSection">
+        <h2>Input</h2>
+
+        <select id="polyInput">
+            <option value="string">String</option>
+            <option value="parameter">Parameter</option>
+        </select>
+
+        <div class="inputDiv">
+            <span class="header">String Input</span>
+            <div class="subDiv">
+                <label for="stringInput">y = </label>
+                <input id="stringInput" name="stringInput" type="text" value="0.1x^3+0.4x^2-2.8x-3.8">
+                <p class="instructions">
+                    <i>Format</i>
+                    <span class="demo">ax^n+bx^(n-1)+...+px+q</span>
+                    <i>with <u>no spaces</u> and <u>no parentheses</u>. <br><br>
+                    For example:</i>
+                    <span class="demo">2x^3+3x+1</span>
+                    <span class="demo">-5x^5+x^3-7x^2</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="inputDiv">
+            <span class="header">Parameter Input</span>
+
+            <div class="subDiv">
+                <label for="degreeInput">Degree:</label>
+                <input id="degreeInput" name="degreeInput" type="number" value="3">
+            </div>
+            <div class="subDiv">
+                <label for="coefficientsInput">Coefficients:</label>
+                <input id="coefficientsInput" name="coefficientsInput" type="text" value="0.1,0.4,-2.8,-3.8">
+            </div>
+
+            <div class="subDiv">
+                <p class="instructions">
+                    <i>Format</i>
+                    <span class="demo">Degree: Integer of max exponent in polynomial</span>
+                    <span class="demo">Coefficients: Comma separated values of coefficients</span>
+                    <br>
+                    <i>For example:</i>
+                    <span class="demo">-5x^5+x^3-7x^2</span>
+                    <span class="demo">Degree: 5</span>
+                    <span class="demo">Coefficients: -5,0,1,-7,0,0</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="graphSettings">
+        <h2>Graph Settings</h2>
+        <button id="graphClear">Clear Graph</button>
+
+        <div class="inputDiv">
+            <div class="subDiv">
+                <label for="domainInput">Domain:</label>
+                <input id="domainInput" name="domainInput" type="text" value="-10,10">
+                <p>
+                    <i>Enter domain as two comma separated values of x min and x max. For example:</i>
+                    <span class="demo">-10,10</span>
+
+                </p>
+            </div>
+        </div>
+
+        <div class="inputdiv">
+            <span class="header">Standard Plot</span>
+            <div class="subDiv">
+                <label for="stepInput">Step:</label>
+                <input id="stepInput" name="stepInput" type="number" value="0.1">
+                <p>
+                    <i>Step is the difference between each plotted x value. Produces a uniform distribution of points. The lower the step, the more accurate the function. Enter a integer or decimal value. For example:</i>
+                    <span class="demo">Domain = -2, 2</span>
+                    <span class="demo">Step = 0.1</span>
+                    <i>would plot all points with x values</i>
+                    <span class="demo">-2,-1.9,-1.8,-1.7,...,1.7,1.8,1.9,2</span>
+                </p>
+                <button id="standardGraphButton">Standard Graph</button>
+            </div>
+        </div>
+
+        <div class="inputdiv">
+            <span class="header">Smart Plot</span>
+            <div class="subDiv">
+                <label for="sampleRateInput">Sample Rate:</label>
+                <input id="sampleRateInput" name="sampleRateInput" type="number" value="0.05">
+                <p>
+                    <i>Sample Rate is the rate at which the program will check for viable points. The lower the value, the more accurate the plotting will be. For example:</i>
+                    <span class="demo">Values of 0.01 to 0.1 are generally ideal</span>
+                </p>
+            </div>
+            <div class="subDiv">
+                <label for="precisionInput">Precision:</label>
+                <input id="precisionInput" name="precisionInput" type="number" value="0.1">
+                <p>
+                    <i>Precision is the density of points to be plotted. A lower precision will equal a higher density and number of points, increasing accuracy. For example:</i>
+                    <span class="demo">Values of 0.01 to 1 are generally ideal</span>
+                </p>
+                <button id="smartGraphButton">Smart Graph</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="viewSettings">
+        <span>Graph View Settings</span>
+        <br><br>
+        x: <input type="number" id="xView" value="10">
+        y: <input type="number" id="yView" value="10">
+        Point Size: <input type="number" id="pointSizeIn" value="5">
+        Graph Thickness: <input type="number" id="graphThick" value="1">
+        <br>
+        Show Points: <input type="checkbox" id="showPoints" checked>
+        Show Graph: <input type="checkbox" id="showGraph" checked>
+        <br>
+    </section>
+
+    <canvas id="axesCanvas" class="canvas" width="750" height="750"></canvas>
+    <canvas id="graphCanvas" class="canvas" width="750" height="750"></canvas>
+    <canvas id="pointsCanvas" class="canvas" width="750" height="750"></canvas>
+    <canvas id="labelsCanvas" class="canvas" width="750" height="750"></canvas>
+
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
